@@ -1,0 +1,163 @@
+// -*- mode: jsonc -*-
+{
+  "layer": "top",
+  "position": "top",
+  "height": 10,
+  "spacing": 4,
+  "margin-top": 1,
+  "margin-left": 10,
+  "margin-right": 10,
+  "reload_style_on_change": true,
+  "modules-left": [
+    "wlr/taskbar",
+    "mpris"
+  ],
+  "modules-center": [
+    "niri/workspaces"
+  ],
+  "modules-right": [
+    "custom/kdeconnect",
+    "custom/anki",
+    "network",
+    "group/power",
+    "group/io",
+    "clock"
+  ],
+  "group/power": {
+    "modules": [
+      "power-profiles-daemon",
+      "battery",
+    ]
+  },
+  "group/io": {
+    "modules": [
+      "pulseaudio",
+      "backlight",
+    ]
+  },
+  "custom/kdeconnect": {
+    // "hide-empty-text": true,
+    "exec": "$HOME/.config/waybar/script/kdeconnect.sh",
+    "format": " ",
+    "tooltip-format": "{text}",
+    "tooltip": true
+  },
+  "custom/anki": {
+    "exec": "$HOME/.config/waybar/script/anki.sh",
+    "format": "󱍁:{text}",
+    "interval": 30
+  },
+  "niri/workspaces": {
+    "format": "{icon}"
+  },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 16,
+    "icon-theme": "Numix-Circle",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+  },
+  "clock": {
+    "interval": 1,
+    "locale": "fr_FR.UTF8",
+    "timezone": "Europe/Paris",
+    "format": "{:L%a%d <b>%H:%M</b>:%S}"
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "battery": {
+    "states": {
+      "good": 80,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-full": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-time": "{H}h{m}",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expand": true
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-wifi": "({signalStrength}%) ",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "󱛅",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{volume}% {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "phone": "",
+      "portable": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "mpris": {
+    "format": "{status_icon} <b>{title}</b>: {dynamic} on <b>{player_icon}</b>",
+    "title-len": 32,
+    "dynamic-separator": " by ",
+    "dynamic-order": [
+      "album",
+      "artist"
+    ],
+    "format-paused": "{status_icon} - <i>{title}</i>",
+    "player-icons": {
+      "default": "▶",
+      "mpv": "",
+      "vlc": "󰕼",
+      "firefox": "",
+      "chromium": "󰎆"
+    },
+    "status-icons": {
+      "paused": "▶",
+      "playing": "⏸",
+    },
+    // "ignored-players": ["firefox"]
+  }
+}
