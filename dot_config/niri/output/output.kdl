@@ -1,0 +1,5 @@
+include "look.kdl"
+include "layout.kdl"
+
+// The path is formatted with strftime(3) to give you the screenshot date and time.
+screenshot-path "~/Pictures/Screenshots/Screenshot from %d-%m-%Y %H-%M-%S.png"

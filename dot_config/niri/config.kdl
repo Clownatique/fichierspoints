@@ -1,0 +1,9 @@
+include "input/input.kdl"
+include "output/output.kdl"
+include "output/layout.kdl"
+include "output/look.kdl"
+include "internal.kdl"
+
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+}
